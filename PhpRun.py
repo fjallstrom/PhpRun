@@ -23,7 +23,3 @@ class PhprunCommand(sublime_plugin.TextCommand):
 			f.close()
 
       		view = self.view.window().open_file(tmp_file_path)
-			
-			#sublime.message_dialog("--- PHP Run output: ---\n" + response)
-
-
