@@ -15,5 +15,15 @@ class PhprunCommand(sublime_plugin.TextCommand):
 				# if no errors, display php output
 				command = "php " + path
 				response = commands.getoutput(command)
+			
+			tmp_file_path = "/tmp/phprun-output.tmp"
+       		
+  			f = open(tmp_file_path, 'w+')
+			f.write(response)
+			f.close()
 
-			sublime.error_message("--- PHP Run output: ---\n" + response)
+      		view = self.view.window().open_file(tmp_file_path)
+			
+			#sublime.message_dialog("--- PHP Run output: ---\n" + response)
+
+
